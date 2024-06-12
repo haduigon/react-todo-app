@@ -25,7 +25,7 @@ export const App: React.FC = () => {
   const [query, setQuery] = useState('');
   const { state, dispatch } = useContext(StateContext);
   const [newTodo, setNewTodo] = useState<null | Todo>(null);
-
+  
   function deleteAll() {
     dispatch({ type: ACTIONS.SET_COMPLETED_DELETING, payload: true });
     state.list.forEach(todo => {
@@ -137,11 +137,13 @@ export const App: React.FC = () => {
           || newTodo || state.sortBy === FILTER.COMPLETED
           || newTodo || state.sortBy === FILTER.ACTIVE) && (
           <footer className="todoapp__footer">
+
             <span className="todo-count">
+              
               {state.totalLength}
               &nbsp;items left
             </span>
-
+            
             <nav className="filter">
               <a
                 href="#/"
