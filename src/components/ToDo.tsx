@@ -109,7 +109,7 @@ export const TodoItem: React.FC<Props> = ({ todo }) => {
   }
 
 
-  let showLoader = isLoading || (state.isLoading && todo.completed)
+  let showLoader = isLoading || (state.areCompletedDeleting && todo.completed)
     || (state.toggleAll === 'completed' && todo.completed)
       || (state.toggleAll === 'active' && !todo.completed);
       console.log(showLoader);

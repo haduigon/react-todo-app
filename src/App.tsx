@@ -27,7 +27,7 @@ export const App: React.FC = () => {
   const [newTodo, setNewTodo] = useState<null | Todo>(null);
 
   function deleteAll() {
-    dispatch({ type: ACTIONS.SET_LOADING, payload: true });
+    dispatch({ type: ACTIONS.SET_COMPLETED_DELETING, payload: true });
     state.list.forEach(todo => {
       if (todo.completed) {
         deleteTodo(todo.id)
@@ -36,7 +36,7 @@ export const App: React.FC = () => {
               dispatch({ type: ACTIONS.SET_LIST, payload: res });
             }))
           .finally(() => dispatch(
-            { type: ACTIONS.SET_LOADING, payload: false },
+            { type: ACTIONS.SET_COMPLETED_DELETING, payload: false },
           ));
       }
     });

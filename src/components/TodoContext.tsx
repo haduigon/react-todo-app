@@ -13,6 +13,7 @@ type Action = { type: ACTIONS.SORT, payload: string }
   | { type: ACTIONS.SET_LIST, payload: Todo[] }
   | { type: ACTIONS.SET_ERROR, payload: string }
   | { type: ACTIONS.SET_LOADING, payload: boolean }
+  | { type: ACTIONS.SET_COMPLETED_DELETING, payload: boolean }
   | { type: ACTIONS.TOGGLE_ALL, payload: string }
 
 interface Data {
@@ -22,6 +23,7 @@ interface Data {
   error: string,
   isLoading: boolean,
   toggleAll: string,
+  areCompletedDeleting: boolean,
 };
 
 function reducer(state: Data, action: Action): Data {
@@ -46,6 +48,11 @@ function reducer(state: Data, action: Action): Data {
           ...state,
           isLoading: action.payload,
         };
+    case ACTIONS.SET_COMPLETED_DELETING:
+      return {
+          ...state,
+          areCompletedDeleting: action.payload,
+        };
     case ACTIONS.TOGGLE_ALL:
       return {
           ...state,
@@ -69,6 +76,7 @@ const initialState: State = {
     error: '',
     isLoading: false,
     toggleAll: '',
+    areCompletedDeleting: false,
   },
   dispatch: () => { },
 };

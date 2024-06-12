@@ -7,6 +7,8 @@ export enum ACTIONS {
   ADD,
   SET_LOADING,
   TOGGLE_ALL,
+  SET_COMPLETED_DELETING,
+
 }
 
 export enum FILTER {
